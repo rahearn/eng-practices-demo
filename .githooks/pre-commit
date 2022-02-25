@@ -21,8 +21,6 @@ fi
 
 
 echo "Running Terraform formatter"
-# imitates https://github.com/HHS/Head-Start-TTADP/blob/3b72ff05d94fab4cda877c63d8cd6970f0eeffc7/.githooks/pre-commit
-
 files=$(git diff --cached --name-only terraform)
 for f in $files
 do
@@ -32,4 +30,3 @@ do
     git add "$f"
   fi
 done
-

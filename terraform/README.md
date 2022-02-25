@@ -6,10 +6,13 @@ Prerequisite: install the `jq` JSON processor: `brew install jq`
 
 ## Initial setup
 
-1. Manually run the bootstrap module following instructions under `Terraform State Credentials` 
-1. Copy bootstrap credentials to your CI/CD secrets using the instructions in the base README
-1. Create a cloud.gov SpaceDeployer by following the instructions under `SpaceDeployers`
-1. Copy SpaceDeployer credentials to your CI/CD secrets using the instructions in the base README
+1. Manually run the bootstrap module following instructions under `Terraform State Credentials`
+1. Setup CI/CD Pipeline to run Terraform
+  1. Copy bootstrap credentials to your CI/CD secrets using the instructions in the base README
+  1. Create a cloud.gov SpaceDeployer by following the instructions under `SpaceDeployers`
+  1. Copy SpaceDeployer credentials to your CI/CD secrets using the instructions in the base README
+1. Manually Running Terraform
+  1. Follow instructions under `Set up a new environment` to create your infrastructure
 
 ## Terraform State Credentials
 
@@ -147,4 +150,3 @@ In the bootstrap module:
 - `run.sh` Helper script to set up a space deployer and run terraform. The terraform action (`show`/`plan`/`apply`/`destroy`) is passed as an argument
 - `teardown_creds.sh` Helper script to remove the space deployer setup as part of `run.sh`
 - `import.sh` Helper script to create a new local state file in case terraform changes are needed
-

@@ -29,6 +29,8 @@ Boundary(aws, "AWS GovCloud") {
             System_Boundary(inventory, "Application") {
                 Container(app, "<&layers> Eng Practices Demo", "Ruby 3.0.3, Rails 7.0.2", "TKTK Application Description")
                 ContainerDb(app_db, "Application DB", "AWS RDS (PostgreSQL)", "Primary data storage")
+                Container(worker, "<&layers> Sidekiq workers", "Ruby 3.0.3, Sidekiq", "Perform background work and data processing")
+                ContainerDb(redis, "Redis Database", "AWS ElastiCache (Redis)", "Background job queue")
                 
             }
         }
@@ -71,6 +73,9 @@ Rel(githuball, cg_api, "Deploy App", "Auth: SpaceDeployer Service Account, https
 
 Rel(developer, newrelic, "Manage performance", "https (443)")
 
+Rel(app, redis, "enqueue job parameters", "redis")
+Rel(worker, redis, "dequeues job parameters", "redis")
+Rel(worker, app_db, "reads/writes primary data", "psql (5432)")
 @enduml
 ```
 

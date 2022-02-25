@@ -20,6 +20,7 @@ Bundler.require(*Rails.groups)
 
 module EngPracticesDemo
   class Application < Rails::Application
+    config.active_job.queue_adapter = :sidekiq
     config.i18n.fallbacks = [:en]
     config.i18n.available_locales = [:en, :es, :fr, :zh]
     # Initialize configuration defaults for originally generated Rails version.
