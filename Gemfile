@@ -65,4 +65,10 @@ group :development, :test do
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.7"
   gem "i18n-tasks", "~> 0.9"
+  gem "rails_template_18f", "~> 0.4"
+end
+gem "sidekiq", "~> 6.4"
+
+group :test do
+  gem "climate_control", "~> 1.0"
 end
